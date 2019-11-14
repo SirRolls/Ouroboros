@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>DB-IO - Create Queries</title>
+        <h1 style="text-align:center">Create Queries</h1>
+    </head>
+    <body>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ConvertQueries.html">Convert Queries</a></li>
+            <li class="active">Create Queries</li>
+            <li><a href="SwitchTo.html">Switch To</a></li>
+        </ul>
+        <h3>Select Language</h3>
+        <ul class="nav2">
+            <li><a href="SQLCreate.html">SQL</a></li>
+            <li><a href="MongoDBCreate.html">MongoDB</a></li>
+            <li class="active">Cassandra</li>
+            <li><a href="ReddisCreate.html">Reddis</a></li>
+        </ul>
+        <div style="text-align:center">
+            <form>
+                <br />
+                <h4>Select Element:</h4>
+                <input type="text" name="element" />
+                <br />
+                <h4>From Table:</h4>
+                <input type="text" name="table" />
+                <br />
+                <br />
+                <input type="submit" value="Submit" class="fsSubmitButton" />
+                <input type="reset" class="fsSubmitButton" />
+            </form>
+            <h4>Create Your own complex query</h4>
+            <form id="complex">
+                <textarea form="complex" rows="6" cols="50">Your query here</textarea>
+                <br />
+                <br />
+                <input type="submit" value="Submit" class="fsSubmitButton" />
+                <input type="reset" class="fsSubmitButton" />
+            </form>
+        </div>
+    </body>
+</html>
