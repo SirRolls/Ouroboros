@@ -43,17 +43,17 @@ def MongoDBCreate():
 		#debug, remove in final
 		print(q)
 		#Running the thing and getting the results. Future version allow user input for finding one or many
-		results = db.Read(q,True)
+		global results = db.Read(q,True)
 		#Debug solution for displaying results 0, will redirect to results page with results run through a parser
 		print(results)
-		
+		return redirect(url_for(results.html))
 	else:
 		#If the request is a get or some other method, we just give them the og page
 		return render_template('MongoDBCreate.html')
 @app.route('/Results.html')
 def Results():
 	#Results template will use global vars to display last results and wipe the var once we;re done
-	return render_template('Results.html')
+	return render_template('Results.html', result=results)
 	
 @app.route('/CassandraCreate.html')
 def CassandraCreate():
