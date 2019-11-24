@@ -21,8 +21,8 @@
         <!-- Buttons for light and dark theme -->
         <!--<button id="light" style="float:left" onclick="initiate();" class="themebutton">Light Theme</button>-->
         <!--<button id="dark" style="float:left" onclick="intiate();" class="themebutton">Dark Theme</button>-->
-        <br />
         <br />  
+        <!-- Table to show query templates different languages -->
         <table align="center" border="1" cellpadding="15" cellspacing="0">
             <tr>
                 <th></th>
@@ -37,19 +37,18 @@
                     CREATE TABLE <i>your_table</i> (<br />
                     <i>column1 datatype</i>, <br />
                     <i>column2 datatype</i>, <br />
-                    <i>column3 datatype</i>, <br />
-                    );
+                    <i>column3 datatype</i>);
                 </td>
-                <td>Mongo create table</td>
-                <td>Cassandra create table</td>
-                <td>Neo4j create table</td>
+                <td>USE <i>your_collection</i></td>
+                <td>CREATE TABLE <i>table_name</i> (<i>conditions</i>)</td>
+                <td style="text-align: center">-</td>
             </tr>
             <tr>
                 <th>Read(find) table/collection</th>
                 <td>SELECT * FROM <i>your_table</i></td>
-                <td>mongo</td>
-                <td>cassandra</td>
-                <td>neo</td>
+                <td>USE <i>your_collection</i></td>
+                <td>SELECT * FROM <i>table_name</i></td>
+                <td style="text-align: center">-</td>
             </tr>
             <tr>
                 <th>Update table/collection</th>
@@ -58,16 +57,23 @@
                     SET <i>column1</i> = <i>value1, column2 = value2,</i> <br />
                     WHERE <i>condition</i>;
                 </td>
-                <td>mongo</td>
-                <td>cassanddra</td>
-                <td>neo</td>
+                <td>db.<i>your_collection</i>.update(<i>condition</i>)</td>
+                <td>
+                    ALTER TABLE [<i>keyspace_name.</i>] <i>table_name</i> <br />
+                    [ALTER <i>column_name</i> TYPE <i>cql_type</i>] <br />
+                    [ADD (<i>column_definition_list</i>)] <br />
+                    [DROP <i>column_list</i> | COMPACT STORAGE ] <br />
+                    [RENAME <i>column_name</i> TO <i>column_name</i>] <br />
+                    [WITH <i>table_properties</i>];
+                </td>
+                <td style="text-align: center">-</td>
             </tr>
             <tr>
                 <th>Delete table/collection</th>
                 <td>DROP TABLE <i>your_table</i>;</td>
-                <td>Mongo drop table</td>
-                <td>cassandra drop table</td>
-                <td>neo drop table</td>
+                <td>dv.<i>your_collection</i>.remove(<b>keep empty</b>)</td>
+                <td>DROP TABLE [IF EXISTS] <i>table_name</i></td>
+                <td style="text-align: center">-</td>
             </tr>
             <tr style="background-color: #333">
                 <td></td>
@@ -82,16 +88,26 @@
                     INSERT INTO <i>your_table</i> (<i>column1, column2</i> ...) <br />
                     VALUES (<i>value1, value2</i>...);
                 </td>
-                <td>mongo</td>
-                <td>cassandra</td>
-                <td>neo</td>
+                <td>
+                    db.<i>your_collection</i>.insertOne(<i>condition</i>) <br />
+                    db.<i>your_collection</i>.insertMany(<i>condition</i>)
+                </td>
+                <td>
+                    INSERT INTO <i>your_table</i>(<i>< column1 > , < column2 > </i>....) <br />    
+                    VALUES (<i>< value1 > ,< value2 ></i> ...)<br />
+                    USING <i>< option ></i>;
+                </td>
+                <td>CREATE (<i>conditons</i>)</td>
             </tr>
             <tr>
                 <th>Read record</th>
                 <td>SELECT <i>element</i> FROM <i>your_table</i></td>
-                <td>mongo select element from table</td>
-                <td>cassandra select element from table</td>
-                <td>neo select element from table</td>
+                <td>db.<i>your_collection</i>.find(<i>condition</i>)</td>
+                <td>SELECT <i>element</i> FROM <i>< table name ></i>;</td>
+                <td>
+                    MATCH (<i>node</i>) <br />
+                    RETURN <i>node</i>
+                </td>
             </tr>
             <tr>
                 <th>Update record</th>
@@ -100,16 +116,39 @@
                     SET <i>column1</i> = <i>value1, column2 = value2,</i> <br />
                     WHERE <i>condition</i>;
                 </td>
-                <td>mongo</td>
-                <td>cassandra</td>
-                <td>neo</td>
+                <td>
+                    db.<i>your_collection</i>.updateOne(<i>condition</i>) <br />
+                    db.<i>your_collection<</i>.updateMany(<i>condition</i>) <br />
+                    db.<i>your_collection</i>.replaceOne(<i>condition</i>)
+                </td>
+                <td>
+                    UPDATE <i>< your_table ></i> <br />
+                    SET <i>< column_name ></i> = <i>< new_value ></i><br />
+                    <i>< column_name ></i> = <i>< value ></i>...<br />
+                    WHERE <i>< condition ></i>;
+                </td>
+                <td>
+                    MATCH (<i>conditions</i>) <br />
+                    SET <i>conditions</i> <br />
+                    RETURN <i>node</i>
+                </td>
             </tr>
             <tr>
                 <th>Delete record</th>
                 <td>DELETE FROM <i>your_table</i>WHERE <i>condition</i>;</td>
-                <td>mongo</td>
-                <td>cassandra</td>
-                <td>neo</td>
+                <td>
+                    db.<i>your_collection</i>.deleteOne(<i>condition</i>) <br />
+                    db.<i>your_collection</i>.deleteMany(<i>condition</i>)
+                </td>
+                <td>
+                    DELETE <i>< identifier ></i> <br />
+                    FROM <i>< table_name ></i> <br />
+                    WHERE <i>< condition ></i>;
+                </td>
+                <td>
+                    MATCH (<i>conditions</i>) <br />
+                    DELETE <i>node</i>
+                </td>
             </tr>
         </table>
     </body>
