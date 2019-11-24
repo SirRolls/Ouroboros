@@ -1,25 +1,36 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/static/stylesheet.css">
+        <!-- Javascript & CSS links and headers for the webpage -->
+        <meta charset="utf-8" />
+        <script type="application/javascript" src="javascript.js"></script>
+        <link id="pagestyle" href="/static/stylesheet.css" rel="stylesheet" type="text/css" />
         <title>DB-IO - Create Queries</title>
-        <h1 style="text-align:center">Create Queries</h1>
+        <h1>Create Queries</h1>
     </head>
     <body>
+        <!-- The navigation bar -->
         <ul class="nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="ConvertQueries.html">Convert Queries</a></li>
             <li class="active">Create Queries</li>
             <li><a href="SwitchTo.html">Switch To</a></li>
             <li><a href="Results.html">Results</a></li>
+            <li><a href="QueryTemplates.html">Query Templates</a></li>
         </ul>
+        <!-- Buttons for light and dark theme -->
+        <!--<button id="light" style="float:left" onclick="initiate();" class="themebutton">Light Theme</button>-->
+        <!--<button id="dark" style="float:left" onclick="intiate();" class="themebutton">Dark Theme</button>-->
+        <br />
+        <!-- The navigation bar to create queries in certain languages -->
         <h3>Select Language</h3>
         <ul class="nav2">
             <li><a href="SQLCreate.html">SQL</a></li>
             <li class="active">MongoDB</li>
             <li><a href="CassandraCreate.html">Cassandra</a></li>
-            <li><a href="Neo4J.html">Neo4j</a></li>
+            <li><a href="Neo4jCreate.html">Neo4j</a></li>
         </ul>
+        <!-- Form to create the query -->
         <div style="text-align:center">
             <form id="MongoCreate" method="post">
                 <br />
@@ -30,11 +41,7 @@
                 <input type="text" name="table" />
                 <br />
                 <br />
-                <input type="submit" value="Submit" class="fsSubmitButton" />
-                <input type="reset" class="fsSubmitButton" />
-            </form>
-            <h4>Create Your own complex query</h4>
-            <form id="complex" method="post">
+                <h4>Create Your own complex query</h4>
                 <textarea form="complex" rows="6" cols="50">Your query here</textarea>
                 <br />
                 <br />

@@ -1,22 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
+        <!-- Javascript & CSS links and headers for the webpage -->
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="/static/stylesheet.css">
+        <script type="application/javascript" src="javascript.js"></script>
+        <link id="pagestyle" href="/static/stylesheet.css" rel="stylesheet" type="text/css" />
         <title>DB-IO - Front Page</title>
-        <h1 style = "text-align:center">Front Page</h1>
+        <h1>Front Page</h1>
     </head>
     <body>
-        <ul class = "nav">
-            <li class = "active">Home</li>
+        <!-- The navigation bar -->
+        <ul class="nav">
+            <li class="active">Home</li>
             <li><a href="ConvertQueries.html">Convert Queries</a></li>
             <li><a href="CreateQueries.html">Create Queries</a></li>
             <li><a href="SwitchTo.html">Switch To</a></li>
             <li><a href="Results.html">Results</a></li>
+            <li><a href="QueryTemplates.html">Query Templates</a></li>
         </ul>
+        <!-- Buttons for light and dark theme -->
+        <!--<button id="light" style="float:left" onclick="initiate();" class="themebutton">Light Theme</button>-->
+        <!--<button id="dark" style="float:left" onclick="intiate();" class="themebutton">Dark Theme</button>-->
+        <br />
+        <!-- Text -->
         <p>This application's front end was created using HTML5 and CSS. Behind the scenes, we utilize Python's easy to learn and very usefull language to talk directly with databases.</p>
         <p>You can create simple queries using our plug-in-data feature and create complex ones as well.</p>
-        <p>You can also convert queries from one database language to another. Say you want to know what the CRUD operation looks like compared to another       database's CRUD.</p>
+        <p>You can also convert queries from one database language to another. Say you want to know what the CRUD operation looks like compared to another database's CRUD.</p>
         <p>We have lots of stretch goals we would like to acomplish but for now, we are still trying to make this application usable, at the basics.</p>
     </body>
 </html>

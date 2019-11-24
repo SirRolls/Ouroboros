@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Javascript & CSS links and headers for the webpage -->
+        <meta charset="utf-8" />
+        <script type="application/javascript" src="javascript.js"></script>
+        <link id="pagestyle" href="/static/stylesheet.css" rel="stylesheet" type="text/css" />
+        <title>DB-IO - Templates</title>
+        <h1>Query templates</h1>
+    </head>
+    <body>
+        <!-- The navigation bar -->
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ConvertQueries.html">Convert Queries</a></li>
+            <li><a href="CreateQueries.html">Create Queries</a></li>
+            <li><a href="SwitchTo.html">Switch To</a></li>
+            <li><a href="Results.html">Results</a></li>
+            <li class="active">Query Templates</li>
+        </ul>
+        <!-- Buttons for light and dark theme -->
+        <!--<button id="light" style="float:left" onclick="initiate();" class="themebutton">Light Theme</button>-->
+        <!--<button id="dark" style="float:left" onclick="intiate();" class="themebutton">Dark Theme</button>-->
+        <br />
+        <br />  
+        <table align="center" border="1" cellpadding="15" cellspacing="0">
+            <tr>
+                <th></th>
+                <th>SQL</th>
+                <th>MongoDB</th>
+                <th>Cassandra</th>
+                <th>Neo4j</th>
+            </tr>
+            <tr>
+                <th>Create table/collection</th>
+                <td>
+                    CREATE TABLE <i>your_table</i> (<br />
+                    <i>column1 datatype</i>, <br />
+                    <i>column2 datatype</i>, <br />
+                    <i>column3 datatype</i>, <br />
+                    );
+                </td>
+                <td>Mongo create table</td>
+                <td>Cassandra create table</td>
+                <td>Neo4j create table</td>
+            </tr>
+            <tr>
+                <th>Read(find) table/collection</th>
+                <td>SELECT * FROM <i>your_table</i></td>
+                <td>mongo</td>
+                <td>cassandra</td>
+                <td>neo</td>
+            </tr>
+            <tr>
+                <th>Update table/collection</th>
+                <td>
+                    UPDATE <i>your_table</i> <br />
+                    SET <i>column1</i> = <i>value1, column2 = value2,</i> <br />
+                    WHERE <i>condition</i>;
+                </td>
+                <td>mongo</td>
+                <td>cassanddra</td>
+                <td>neo</td>
+            </tr>
+            <tr>
+                <th>Delete table/collection</th>
+                <td>DROP TABLE <i>your_table</i>;</td>
+                <td>Mongo drop table</td>
+                <td>cassandra drop table</td>
+                <td>neo drop table</td>
+            </tr>
+            <tr style="background-color: #333">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Create record</th>
+                <td>
+                    INSERT INTO <i>your_table</i> (<i>column1, column2</i> ...) <br />
+                    VALUES (<i>value1, value2</i>...);
+                </td>
+                <td>mongo</td>
+                <td>cassandra</td>
+                <td>neo</td>
+            </tr>
+            <tr>
+                <th>Read record</th>
+                <td>SELECT <i>element</i> FROM <i>your_table</i></td>
+                <td>mongo select element from table</td>
+                <td>cassandra select element from table</td>
+                <td>neo select element from table</td>
+            </tr>
+            <tr>
+                <th>Update record</th>
+                <td>
+                    UPDATE <i>your_table</i> <br />
+                    SET <i>column1</i> = <i>value1, column2 = value2,</i> <br />
+                    WHERE <i>condition</i>;
+                </td>
+                <td>mongo</td>
+                <td>cassandra</td>
+                <td>neo</td>
+            </tr>
+            <tr>
+                <th>Delete record</th>
+                <td>DELETE FROM <i>your_table</i>WHERE <i>condition</i>;</td>
+                <td>mongo</td>
+                <td>cassandra</td>
+                <td>neo</td>
+            </tr>
+        </table>
+    </body>
+</html>
