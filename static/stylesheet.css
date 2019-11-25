@@ -1,0 +1,104 @@
+body    {
+    background-color: #CDFFFF;
+}
+
+p {
+    text-align: center;
+    font-size: 22px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+h1, h3      {
+    color: black;
+    text-align: center;
+}
+
+.active {
+    display: block;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #4FD5D6;
+}
+
+.nav{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+    background-color: #333;
+}
+.nav li{
+    display:inline;
+}
+.nav a{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav ul {
+    overflow: hidden;
+}
+.nav li a:hover {
+    background-color: #111;
+}
+
+.nav2 {
+    border: 1px solid #ccc;
+    border-width: 1px 0;
+    list-style-type: none;
+    margin: auto;
+    width:75%;
+    padding: 0;
+    text-align: center;
+    background-color: #333;
+}
+
+.nav2 li {
+    display: inline;
+}
+
+.nav2 a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav2 ul {
+    overflow: hidden;
+}
+
+.nav2 li a:hover {
+    background-color: #111;
+}
+
+.fsSubmitButton {
+    padding: 10px 14px 11px;
+    font-size: 18px;
+    background-color: #4FD5D6;
+    font-weight: bold;
+    text-shadow: 1px 1px #4FD5D6;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #4FD5D6;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.themebutton {
+    background-color: #4FD5D6;
+    font-weight: bold;
+    text-shadow: 1px 1px #4FD5D6;
+    color: #ffffff;
+    border-radius: 2px;
+    border: 1px solid #4FD5D6;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
