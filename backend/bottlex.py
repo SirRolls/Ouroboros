@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request,redirect, url_for
 import mongoLib
-
+import sqlite3
+import json
 db = mongoLib
 
 #TODO: Rewrite SQLlite3 CRUD, import CassandraCRUD Lib, test cassandraLib, Further Reddis Lib, Add Cinvert queries lib and display
@@ -16,19 +17,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/ConvertQueries.html')
-def ConvertQueries():
-	return render_template('ConvertQueries.html')
-@app.route('/AlarmClock.html')
-def AlarmClock():
-	return render_template('AlarmClock.html')
 @app.route('/CreateQueries.html')
 def CreateQueries():
 	return render_template('CreateQueries.html')
 @app.route('/MongoDBCreate.html', methods=["GET","POST"])
 def MongoDBCreate():
 	#If the request frim the browser is post, we know a user has entered something
-	
+	#TODO: Add null checking on request params
 	if request.method == "POST":
 		#debug, remove in final
 		print(request.form['element'])
@@ -37,16 +32,17 @@ def MongoDBCreate():
 		#If the form for element is empty, we assume that they wrote a complex query
 		#With future versions, it may be better to have a try here with an error page
 		if request.form['element'] != '':
-			q = '{'+ request.form['element'] + ':' + '/"' + request.form['table'] + '/"' + '}'
+			q = {request.form['element'] : request.form['table']}
 		else:
 			q = request.form['complex']
 		#debug, remove in final
 		print(q)
 		#Running the thing and getting the results. Future version allow user input for finding one or many
-		global results = db.Read(q,True)
+		global results
+		results = db.Read(q,False)
 		#Debug solution for displaying results 0, will redirect to results page with results run through a parser
 		print(results)
-		return redirect(url_for(results.html))
+		return redirect(url_for('Results'))
 	else:
 		#If the request is a get or some other method, we just give them the og page
 		return render_template('MongoDBCreate.html')
@@ -66,9 +62,36 @@ def CassandraCreate():
 def ReddisCreate():
 	return render_template('ReddisCreate.html')
 		
-@app.route('/SQLCreate.html')
+@app.route('/SQLCreate.html', methods=["GET","POST"])
 def SQLCreate():
-	#OLD REWRITE NEEDED, Code Deleted
+
+	if request.method == "POST":
+	
+	
+	#Vars setup
+		sqlDB = "TestDB.sqlite"
+		tableName = request.form['table']
+		elementName = request.form['element']
+		conn = sqlite3.connect(sqlDB)
+		c = conn.cursor()
+		
+		if request.form['complex'] is not null:
+			
+			complex = request.form['complex']
+			c.execute(complex)
+			rows = c.fetchall()
+			for row in rows:
+				results = results + '/n' + row
+		else:
+			c.execute(f"SELECT {elementName} FROM {tableName}")
+			rows = c.fetchall()
+			for row in rows:
+				results = results + '/n' + row
+		#closing connection and commiting changes
+		conn.commit()
+		conn.close()
+		return redirect(url_for('Results'))
+	
 	return render_template('SQLCreate.html')
 
 	
@@ -79,6 +102,7 @@ def Neo4jCreate():
 
 @app.route('/SwitchTo.html')
 def SwitchTo():
+	#custom lib indev
 	return render_template('SwitchTo.html')	
 
 @app.route('/index.html')	
